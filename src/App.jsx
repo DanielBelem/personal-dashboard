@@ -1,17 +1,48 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react';
+
+import LoginPage from './pages/loginPage';
+import DashboardPage from './pages/dashboardPage';
+import { supabase } from './services/supabase';
+
+import './index.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [session, setSession] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  return (
-    <>
-    <p>Clean slate</p>
-    </>
-  )
+  useEffect(() => {
+    async function getInitialSession() {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
+      setSession(session);
+      setLoading(false);
+    }
+
+    getInitialSession();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+      setLoading(false);
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="loading-page">
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
+  return session ? <DashboardPage user={session.user} /> : <LoginPage />;
 }
 
-export default App
+export default App;
