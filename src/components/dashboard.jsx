@@ -1,5 +1,6 @@
 import { supabase } from '../services/supabase';
 
+
 function Dashboard({ user }) {
   async function handleLogout() {
     const { error } = await supabase.auth.signOut();
