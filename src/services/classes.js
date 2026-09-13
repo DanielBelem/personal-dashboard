@@ -37,10 +37,7 @@ export async function createClass(userId, classData) {
 }
 
 export async function deleteClass(classId) {
-  const { error } = await supabase
-    .from('classes')
-    .delete()
-    .eq('id', classId);
+  const { error } = await supabase.from('classes').delete().eq('id', classId);
 
   if (error) {
     throw error;
