@@ -130,7 +130,7 @@ function AddGoalsForm({ onSubmit, onCancel }) {
             <button
               type="submit"
               disabled={loading}
-              className="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-neutral-700 disabled:opacity-50"
+              className="rounded-lg bg-green-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-neutral-700 disabled:opacity-50"
             >
               {loading ? 'Saving...' : 'Create goal'}
             </button>

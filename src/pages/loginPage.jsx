@@ -64,7 +64,7 @@ function LoginPage() {
 
           {error && <p className="error-message">{error}</p>}
 
-          <button className="primary-button" type="submit" disabled={loading}>
+          <button className="primary-button bg-green" type="submit" disabled={loading}>
             {loading ? 'Signing in...' : 'Sign in'}
           </button>
         </form>

@@ -22,8 +22,8 @@ function DashboardPage({ user }) {
   }
 
   return (
-    <div className="min-h-screen bg-neutral-50">
-      <header className="border-b border-neutral-200 bg-white">
+    <div className="min-h-screen bg-mist-300">
+      <header className="border-b border-olive-200 bg-mist-400/80">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div>
             <h1 className="text-xl font-semibold text-neutral-900">
@@ -38,7 +38,7 @@ function DashboardPage({ user }) {
           <button
             onClick={handleLogout}
             disabled={loading}
-            className="rounded-lg border border-neutral-300 px-4 py-2 text-sm font-medium transition hover:bg-neutral-100 disabled:opacity-50"
+            className="rounded-full border border-olive-200 px-4 py-2 text-sm font-medium transition hover:bg-red-200 disabled:opacity-50"
           >
             {loading ? 'Logging out...' : 'Logout'}
           </button>
@@ -47,8 +47,6 @@ function DashboardPage({ user }) {
 
       <main className="mx-auto max-w-7xl space-y-8 px-6 py-8">
         <ScheduleSection user={user} />
-        <SavingsSection user={user} />
-        <AccountsSection user={user} />
       </main>
     </div>
   );

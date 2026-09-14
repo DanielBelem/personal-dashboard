@@ -107,7 +107,7 @@ function SavingsSection({ user }) {
 
   return (
     <>
-      <section className="rounded-2xl border border-neutral-200 bg-white p-6">
+      <section className="rounded-2xl border border-olive-200 bg-slate-200 p-6">
         <div className="mb-6 flex items-center justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
@@ -119,7 +119,7 @@ function SavingsSection({ user }) {
 
           <button
             onClick={() => setShowAddForm(true)}
-            className="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-neutral-700"
+            className="rounded-full bg-green-900 border-olive-300 px-4 py-2 text-sm font-medium text-white transition hover:bg-green-700"
           >
             Add savings goal
           </button>

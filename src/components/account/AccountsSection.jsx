@@ -62,7 +62,7 @@ function AccountsSection({ user }) {
 
   return (
     <>
-      <section className="rounded-2xl border border-neutral-200 bg-white p-6">
+      <section className="rounded-2xl border border-neutral-200 bg-slate-200 p-6">
         <div className="mb-6 flex items-center justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500">

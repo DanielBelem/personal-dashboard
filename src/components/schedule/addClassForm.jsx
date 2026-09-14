@@ -38,15 +38,15 @@ function AddClassForm({ onSubmit, onCancel }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
       <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
         <div className="mb-6">
-          <h2 className="text-xl font-semibold">Add class</h2>
-          <p className="mt-1 text-sm text-neutral-500">
+          <h2 className="text-xl font-semibold text-center">Add class</h2>
+          <p className="mt-1 text-sm text-neutral-500 text-center">
             Add a class to your weekly schedule.
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="mb-1 block text-sm font-medium">Subject</label>
+            <label className="mb-1 block text-sm font-medium text-center">Subject</label>
 
             <input
               type="text"
@@ -58,7 +58,7 @@ function AddClassForm({ onSubmit, onCancel }) {
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium">Day</label>
+            <label className="mb-1 block text-sm font-medium text-center">Day</label>
 
             <select
               value={weekday}
@@ -102,7 +102,7 @@ function AddClassForm({ onSubmit, onCancel }) {
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium">Room</label>
+            <label className="mb-1 block text-sm font-medium text-center">Room</label>
 
             <input
               type="text"
@@ -114,7 +114,7 @@ function AddClassForm({ onSubmit, onCancel }) {
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium">Type</label>
+            <label className="mb-1 block text-sm font-medium text-center">Type</label>
 
             <input
               type="text"
@@ -140,7 +140,7 @@ function AddClassForm({ onSubmit, onCancel }) {
             <button
               type="submit"
               disabled={loading}
-              className="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-700 disabled:opacity-50"
+              className="rounded-lg bg-green-900 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 disabled:opacity-50"
             >
               {loading ? 'Saving...' : 'Save class'}
             </button>

@@ -61,23 +61,25 @@ function ScheduleSection({ user }) {
 
   return (
     <>
-      <section className="rounded-2xl border border-neutral-200 bg-white p-6">
-        <div className="mb-6 flex items-center justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
-              Schedule
-            </p>
+      <section className="rounded-2xl border border-olive-200 bg-slate-200 p-6">
+        <div className="mb-6 grid grid-cols-3 items-center"><div />
+          <div className="text-center">
+              <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
+                Schedule
+              </p>
 
-            <h2 className="mt-1 text-2xl font-semibold">Weekly classes</h2>
+              <h2 className="mt-1 text-2xl font-semibold">
+                Planned Activities
+              </h2>
           </div>
 
           <button
             onClick={() => setShowAddForm(true)}
-            className="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-neutral-700"
+            className="justify-self-end rounded-full bg-green-900 px-4 py-2 text-sm font-medium text-white border-olive-300 transition hover:bg-green-700"
           >
             Add class
           </button>
-        </div>
+          </div>
 
         {loading && (
           <p className="text-sm text-neutral-500">Loading classes...</p>
@@ -95,21 +97,21 @@ function ScheduleSection({ user }) {
               return (
                 <div
                   key={day.value}
-                  className="min-h-52 rounded-xl border border-neutral-200 bg-neutral-50 p-4"
+                  className="min-h-52 rounded-2xl border border-olive-200 bg-neutral-50 p-4"
                 >
-                  <h3 className="mb-4 font-semibold">{day.label}</h3>
+                  <h3 className="text-center mb-1 mt-5 font-semibold">{day.label}</h3>
 
-                  <div className="space-y-3">
+                  <div className="space-y-6 text-center mt:8">
                     {dayClasses.length === 0 ? (
                       <p className="text-sm text-neutral-400">No classes</p>
                     ) : (
                       dayClasses.map((classItem) => (
                         <article
                           key={classItem.id}
-                          className="group rounded-lg border border-neutral-200 bg-white p-3"
+                          className="group border rounded-2xl border-olive-200 bg-white p-3 grid-col-3"
                         >
                           <div className="flex items-start justify-between gap-2">
-                            <p className="font-medium">{classItem.subject}</p>
+                            <p className="flex">{classItem.subject}</p>
 
                             <button
                               onClick={() => handleDeleteClass(classItem.id)}
