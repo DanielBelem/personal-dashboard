@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-
 function AddClassForm({ onSubmit, onCancel }) {
   const [subject, setSubject] = useState('');
   const [weekday, setWeekday] = useState('1');
@@ -47,9 +46,7 @@ function AddClassForm({ onSubmit, onCancel }) {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="mb-1 block text-sm font-medium">
-              Subject
-            </label>
+            <label className="mb-1 block text-sm font-medium">Subject</label>
 
             <input
               type="text"
@@ -61,9 +58,7 @@ function AddClassForm({ onSubmit, onCancel }) {
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium">
-              Day
-            </label>
+            <label className="mb-1 block text-sm font-medium">Day</label>
 
             <select
               value={weekday}
@@ -94,9 +89,7 @@ function AddClassForm({ onSubmit, onCancel }) {
             </div>
 
             <div>
-              <label className="mb-1 block text-sm font-medium">
-                End time
-              </label>
+              <label className="mb-1 block text-sm font-medium">End time</label>
 
               <input
                 type="time"
@@ -109,9 +102,7 @@ function AddClassForm({ onSubmit, onCancel }) {
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium">
-              Room
-            </label>
+            <label className="mb-1 block text-sm font-medium">Room</label>
 
             <input
               type="text"
@@ -123,9 +114,7 @@ function AddClassForm({ onSubmit, onCancel }) {
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium">
-              Type
-            </label>
+            <label className="mb-1 block text-sm font-medium">Type</label>
 
             <input
               type="text"
@@ -136,11 +125,7 @@ function AddClassForm({ onSubmit, onCancel }) {
             />
           </div>
 
-          {error && (
-            <p className="text-sm text-red-600">
-              {error}
-            </p>
-          )}
+          {error && <p className="text-sm text-red-600">{error}</p>}
 
           <div className="flex justify-end gap-3 pt-2">
             <button

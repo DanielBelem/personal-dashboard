@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 import { supabase } from '../services/supabase';
 import ScheduleSection from '../components/schedule/ScheduleSection';
+import SavingsSection from '../components/savings/SavingsSection';
+import AccountsSection from '../components/account/AccountsSection';
 
 function DashboardPage({ user }) {
   const [loading, setLoading] = useState(false);
@@ -45,10 +47,11 @@ function DashboardPage({ user }) {
 
       <main className="mx-auto max-w-7xl space-y-8 px-6 py-8">
         <ScheduleSection user={user} />
+        <SavingsSection user={user} />
+        <AccountsSection user={user} />
       </main>
     </div>
   );
 }
-
 
 export default DashboardPage;
