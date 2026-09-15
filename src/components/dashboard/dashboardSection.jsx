@@ -8,9 +8,9 @@ import {
   getAccounts,
 } from '../../services/accounts';
 
+import AddAccountForm from './addAccountForm';
+
 {/*---------------TRANSACTIONS IMPORTS---------------*/}
-
-
 
 
 
@@ -18,6 +18,9 @@ function DashboardSection({ user }){
   const [accounts, setAccounts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+
+  const [showAddForm, setShowAddForm] = useState(false);
+
 
   {/*---------------ACCOUNT FUNCTIONS---------------*/}
   useEffect(() => {
@@ -48,6 +51,7 @@ function DashboardSection({ user }){
         ...currentAccounts,
         newAccount,
       ]);
+      setShowAddForm(false);
     } catch (error) {
       console.error(error);
       setError('Failed to add personal account.');
@@ -125,7 +129,7 @@ function DashboardSection({ user }){
                   accounts.slice(0, 3).map((account) => (
                     <article
                       key={account.id}
-                      className="group col-span-3 grid grid-cols-[1fr_auto] grid-rows-2 items-center px-6 rounded-2xl border border-olive-300 bg-teal-50"
+                      className="group col-span-3 grid grid-cols-[1fr_auto] grid-rows-2 items-center px-6 rounded-2xl border border-olive-300 bg-teal-50 hover:bg-teal-50/80"
                     >
                       <p className="col-start-1 row-start-1 justify-self-start font-semibold">
                         {account.name}
@@ -154,21 +158,14 @@ function DashboardSection({ user }){
         
                {!loading && accounts.length < 3 && (
                 <button
+                    onClick={() => setShowAddForm(true)}
                     type="button"
-                    className="col-span-3 grid place-items-center rounded-2xl border border-olive-300 bg-teal-50 text-3xl text-neutral-400 transition hover:bg-white/40 hover:text-green-900"
+                    className="col-span-3 grid place-items-center rounded-2xl border border-olive-300 bg-teal-50 text-neutral-400 transition hover:bg-teal-50/80 hover:text-green-900 text-2xl"
                     >
                     +
                 </button>
                 )}
             </div>
-
-
-
-
-
-
-
-
 
             {/*GRAPH SECTION*/}
             <div className="row-start-1 col-start-3 col-span-2 row-span-4 border border-dashed">
@@ -186,6 +183,16 @@ function DashboardSection({ user }){
         </div>
                  
       </section>   
+    
+        {showAddForm && (
+        <AddAccountForm
+          onSubmit={handleAddAccount}
+          onCancel={() =>
+            setShowAddForm(false)
+          }
+        />
+      )}
+
     </>
   );
 }
