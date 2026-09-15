@@ -44,7 +44,7 @@ function DashboardPage({ user }) {
         </div>
       </header>
 
-      <main className="mx-auto max-w-8xl space-y-8 px-6 py-8">
+      <main className="mx-auto max-w-8xl space-y-2 px-6 ml-8 mr-8 mt-2 mb-2">
         <DashboardSection user={user} />
         <ScheduleSection user={user} />
       </main>
